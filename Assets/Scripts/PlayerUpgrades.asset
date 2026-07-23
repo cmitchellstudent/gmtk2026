@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff1cc312d2997f4fb8d1d3e617974bb, type: 3}
   m_Name: PlayerUpgrades
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUpgrades
-  playerSpeed: 1
+  playerSpeed: 6
   playerMaxHealth: 100

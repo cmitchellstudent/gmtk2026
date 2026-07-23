@@ -7,5 +7,10 @@ public class PlayerUpgrades : ScriptableObject
     [SerializeField] private float playerMaxHealth = 100f;
     
     public float getSpeed => playerSpeed;
+
+    public void setSpeed(float val)
+    {
+        playerSpeed = val;
+    }
     public float getMaxHealth => playerMaxHealth;
 }
