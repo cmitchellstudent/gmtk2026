@@ -25,6 +25,7 @@ public class UpgradeTreeManager : MonoBehaviour
         {
             speedUpButton.interactable = false;
             speedUpButtonText.text = "Upgrade Player Speed. Maxed!";
+            
         }
         else
         {

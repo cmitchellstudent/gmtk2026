@@ -13,4 +13,9 @@ public class PlayerUpgrades : ScriptableObject
         playerSpeed = val;
     }
     public float getMaxHealth => playerMaxHealth;
+
+    public void setMaxHealth(float val)
+    {
+        playerMaxHealth = val;
+    }
 }
