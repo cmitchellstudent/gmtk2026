@@ -3,27 +3,28 @@ using UnityEngine;
 
 public class CameraDragBehavior : MonoBehaviour
 {
- private Vector3 ResetCamera;
+	[SerializeField] private Camera cam;
+	private Vector3 ResetCamera;
 	private Vector3 Origin;
 	private Vector3 Diference;
 	private bool Drag=false;
 	private int CameraSpeed=15;
 	void Start () {
-		ResetCamera = Camera.main.transform.position;
+		ResetCamera = cam.transform.position;
 	}
 	void LateUpdate () {
 		// Drag Camera on mouse click
 		if (Input.GetMouseButton (0)) {
-			Diference=(Camera.main.ScreenToWorldPoint (Input.mousePosition))- Camera.main.transform.position;
+			Diference=(cam.ScreenToWorldPoint (Input.mousePosition))- cam.transform.position;
 			if (Drag==false){
 				Drag=true;
-				Origin=Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				Origin=cam.ScreenToWorldPoint (Input.mousePosition);
 			}
 		} else {
 			Drag=false;	
 		}
 		if (Drag==true){
-			Camera.main.transform.position = Origin-Diference;
+			cam.transform.position = Origin-Diference;
 		}
 
 		// move camera on WASD/arrow key input
@@ -31,6 +32,15 @@ public class CameraDragBehavior : MonoBehaviour
 		float y = Input.GetAxis("Vertical") * CameraSpeed * Time.deltaTime;
 
 		transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z);
+		
+		float scrollY = Input.mouseScrollDelta.y;
 
+		if (scrollY != 0f)
+		{
+			float newSize = cam.orthographicSize - (scrollY);
+			
+			cam.orthographicSize = Mathf.Clamp(newSize, 1, 20);
+			
+		}
 	}   
 }
