@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class FlyingEnemy : MonoBehaviour
@@ -12,10 +12,11 @@ public class FlyingEnemy : MonoBehaviour
     public PlayerHealth playerHealth; //script on player
 
     public int damageToPlayer = 10;
+
+    private bool coroutineRunning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
         rb.linearVelocity = (Vector2.up + Vector2.right) * speed;
     }
 
@@ -23,6 +24,11 @@ public class FlyingEnemy : MonoBehaviour
     void Update()
     {
         currVelocity = rb.linearVelocity;
+        if (rb.linearVelocity == Vector2.zero && !coroutineRunning)
+        {
+            coroutineRunning = true;
+            StartCoroutine(startFlying());
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,5 +41,13 @@ public class FlyingEnemy : MonoBehaviour
         var normal = collision.contacts[0].normal;
         Vector2 reflection = Vector2.Reflect(currVelocity, normal);
         rb.linearVelocity = reflection;
+    }
+
+    private IEnumerator startFlying()
+    {
+        yield return new WaitForSeconds(3.0f);
+        coroutineRunning = false;
+        rb.linearVelocity = (Vector2.up + Vector2.right) * speed;
+        
     }
 }
