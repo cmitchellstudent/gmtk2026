@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ public class DeathCountDown : MonoBehaviour
     private float timeleft = 3;
     public TextMeshProUGUI UIText;
     public PlayerHealth playerHealth; //call this to die
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
