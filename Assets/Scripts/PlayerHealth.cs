@@ -36,13 +36,13 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0) Die();
     }
 
-    void increaseHealth(int amount)
+    public void IncreaseHealth(int amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
-    public void takeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         if (!isInvincible)
         {
