@@ -21,7 +21,15 @@ public class UpgradeTreeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speedUpButtonText.text = "Upgrade Player Speed. Current: " + playerUpgrades.getSpeed.ToString();
+        if (playerUpgrades.getSpeed >= 6)
+        {
+            speedUpButton.interactable = false;
+            speedUpButtonText.text = "Upgrade Player Speed. Maxed!";
+        }
+        else
+        {
+            speedUpButtonText.text = "Upgrade Player Speed. Current: " + playerUpgrades.getSpeed.ToString();
+        }
     }
 
     void StartRun()
@@ -34,6 +42,9 @@ public class UpgradeTreeManager : MonoBehaviour
         if (playerUpgrades.getSpeed < 2)
         {
             playerUpgrades.setSpeed(3);
-        }
+        } else if (playerUpgrades.getSpeed < 5)
+        {
+            playerUpgrades.setSpeed(6);
+        } 
     }
 }
