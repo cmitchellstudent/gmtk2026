@@ -35,7 +35,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerHealth.takeDamage(damageToPlayer);
+            playerHealth.TakeDamage(damageToPlayer);
         }
         //Debug.Log(collision.gameObject.name);
         var normal = collision.contacts[0].normal;
