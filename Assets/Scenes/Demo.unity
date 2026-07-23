@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b75b3b12905c6c4888e258448f86610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxSeconds: 99
+  maxSeconds: 3
   UIText: {fileID: 208869062}
   playerHealth: {fileID: 1681260270}
 --- !u!114 &208869062
