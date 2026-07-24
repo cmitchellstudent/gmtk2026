@@ -2,13 +2,12 @@ using System.Collections.Generic;
 using Unity.Jobs;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerStats", menuName = "Scriptable Object/PlayerStats")]
 public class PlayerStats : MonoBehaviour{
-//All Public Player Stats Shown Here
+//All Public Player Stats Shown Hereuu
     [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private int jumpAmount = 1; // double jump starts at 2
-    [SerializeField] private float dashCooldown = 2f;
+    [SerializeField] private float dashCooldown =  0.2f;
     [SerializeField] private float damageAmount = 2f;
     [SerializeField] private int vampBlood = 0; // currency for upgrades 
     

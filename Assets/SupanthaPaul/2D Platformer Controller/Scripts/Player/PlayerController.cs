@@ -12,14 +12,12 @@ namespace SupanthaPaul
 		[SerializeField] private Transform groundCheck;
 		[SerializeField] private float groundCheckRadius;
 		[SerializeField] private LayerMask whatIsGround;
-		[SerializeField] private int extraJumpCount = 1;
 		[SerializeField] private GameObject jumpEffect;
 		[Header("Dashing")]
 		[SerializeField] private float dashSpeed = 30f;
 		[Tooltip("Amount of time (in seconds) the player will be in the dashing speed")]
-		[SerializeField] private float startDashTime = 0.1f;
+		[SerializeField] private float startDashTime = 0.1f; // length of dash
 		[Tooltip("Time (in seconds) between dashes")]
-		[SerializeField] private float dashCooldown = 0.2f;
 		[SerializeField] private GameObject dashEffect;
 
 		// Access needed for handling animation in Player script and other uses
@@ -65,7 +63,7 @@ namespace SupanthaPaul
 
 		void Start()
 		{
-			speed = playerStats.GetPlayerSpeed();
+			speed = playerStats.GetPlayerSpeed(); // dynamic player stats value for speed, can be modified by skills
 			// create pools for particles
 			PoolManager.instance.CreatePool(dashEffect, 2);
 			PoolManager.instance.CreatePool(jumpEffect, 2);
@@ -74,9 +72,9 @@ namespace SupanthaPaul
 			if (transform.CompareTag("Player"))
 				isCurrentlyPlayable = true;
 
-			m_extraJumps = extraJumpCount;
+			m_extraJumps = (int)playerStats.getJumpAmount() - 1; // use dynamic player stats value for amount of total jumps. getJumpAmount starts at 1 representing one jump
 			m_dashTime = startDashTime;
-			m_dashCooldown = dashCooldown;
+			m_dashCooldown = playerStats.getDashCooldown(); // dynamic 
 			m_extraJumpForce = jumpForce * 0.7f;
 
 			m_rb = GetComponent<Rigidbody2D>();
@@ -134,7 +132,7 @@ namespace SupanthaPaul
 					if (m_dashTime <= 0f)
 					{
 						isDashing = false;
-						m_dashCooldown = dashCooldown;
+						m_dashCooldown = playerStats.getDashCooldown();
 						m_dashTime = startDashTime;
 						m_rb.linearVelocity = Vector2.zero;
 					}
@@ -186,7 +184,7 @@ namespace SupanthaPaul
 
 			if (isGrounded)
 			{
-				m_extraJumps = extraJumpCount;
+				m_extraJumps = (int)playerStats.getJumpAmount() - 1;
 			}
 
 			// grounded remember offset (for more responsive jump)
