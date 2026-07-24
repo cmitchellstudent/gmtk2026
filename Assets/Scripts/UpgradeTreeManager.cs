@@ -9,6 +9,8 @@ public class UpgradeTreeManager : MonoBehaviour
     public Button startButton;
     public Button speedUpButton;
     private TextMeshProUGUI speedUpButtonText;
+    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
