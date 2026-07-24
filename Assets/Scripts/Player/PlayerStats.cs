@@ -3,7 +3,7 @@ using Unity.Jobs;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "Scriptable Object/PlayerStats")]
-public class PlayerStats : ScriptableObject {
+public class PlayerStats : MonoBehaviour{
 //All Public Player Stats Shown Here
     [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float maxHealth = 100f;

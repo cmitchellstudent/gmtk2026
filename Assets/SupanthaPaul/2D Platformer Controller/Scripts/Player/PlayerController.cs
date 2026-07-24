@@ -4,7 +4,7 @@ namespace SupanthaPaul
 {
 	public class PlayerController : MonoBehaviour
 	{
-		[SerializeField] private PlayerUpgrades playerUpgrades;
+		[SerializeField] private PlayerStats playerStats;
 		private float speed;
 		[Header("Jumping")]
 		[SerializeField] private float jumpForce;
@@ -65,7 +65,7 @@ namespace SupanthaPaul
 
 		void Start()
 		{
-			speed = playerUpgrades.getSpeed;
+			speed = playerStats.GetPlayerSpeed();
 			// create pools for particles
 			PoolManager.instance.CreatePool(dashEffect, 2);
 			PoolManager.instance.CreatePool(jumpEffect, 2);
