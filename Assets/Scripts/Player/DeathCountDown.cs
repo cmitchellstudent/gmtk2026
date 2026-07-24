@@ -7,7 +7,7 @@ public class DeathCountDown : MonoBehaviour
     public float maxSeconds = 3;
     private float timeleft = 3;
     public TextMeshProUGUI UIText;
-    public PlayerHealth playerHealth; //call this to die
+    public PlayerHealth currentHealth; //call this to die
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +22,7 @@ public class DeathCountDown : MonoBehaviour
         UIText.text = timeleft.ToString("00");
         if (timeleft <= 0)
         {
-            playerHealth.Die();
+            currentHealth.Die();
         }
     }
     private IEnumerator DecreaseTimer()
