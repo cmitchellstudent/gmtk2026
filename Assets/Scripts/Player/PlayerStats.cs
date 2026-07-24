@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using Unity.Jobs;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour{
+[CreateAssetMenu(fileName = "PlayerStats", menuName = "Scriptable Objects/PlayerStats")]
+public class PlayerStats : ScriptableObject{
 //All Public Player Stats Shown Hereuu
     [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float maxHealth = 100f;

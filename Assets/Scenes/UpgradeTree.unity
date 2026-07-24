@@ -338,7 +338,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 401584175}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 810af20a204b00848abbe28efdba393d, type: 2}
+        m_TargetAssemblyTypeName: SpeedUpSkill, Assembly-CSharp
+        m_MethodName: Apply
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4a4df8aa6fa09524aaef8e197104d6d8,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: PlayerStats, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &401584175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,6 +1284,7 @@ GameObject:
   - component: {fileID: 1322571953}
   - component: {fileID: 1322571952}
   - component: {fileID: 1322571955}
+  - component: {fileID: 1322571956}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1364,12 +1378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910b3c3e7a173fe49807cb99d50a5f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1322571956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322571951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6702691acc3568b4685ddef9e07225ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraDragBehavior
   cam: {fileID: 1322571953}
-  ResetCamera: {x: 0, y: 0, z: 0}
-  Origin: {x: 0, y: 0, z: 0}
-  Diference: {x: 0, y: 0, z: 0}
-  Drag: 0
-  CameraSpeed: 15
 --- !u!1 &1454338072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001825619}
   - component: {fileID: 2001825618}
+  - component: {fileID: 2001825620}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1604,9 +1626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b4fc20be4de88439a6c1ae870f224e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  playerUpgrades: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 4a4df8aa6fa09524aaef8e197104d6d8, type: 2}
   startButton: {fileID: 688516403}
-  speedUpButton: {fileID: 401584174}
 --- !u!4 &2001825619
 Transform:
   m_ObjectHideFlags: 0
@@ -1622,6 +1643,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2001825620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001825617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7083c9228585f48b9d41f6de1b4675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  playerSpeed: 1
+  maxHealth: 100
+  jumpAmount: 1
+  dashCooldown: 0.2
+  damageAmount: 2
+  vampBlood: 0
+  skillList: 
+  skillLevel: 
 --- !u!1 &2045550684
 GameObject:
   m_ObjectHideFlags: 0
