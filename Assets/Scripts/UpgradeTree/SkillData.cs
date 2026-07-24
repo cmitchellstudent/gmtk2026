@@ -10,7 +10,7 @@ public abstract class SkillData : ScriptableObject
     public int vampBloodCost = 1;
     public Sprite icon;
     public int maxLevel = 1;
-    public List<string> unlockedSkillIds = new List<string>(); // skills that become visible when this skill is upgraded
+    public List<string> unlockedSkillIds = new List<string>(); // skills connected to this skill that become visible when this skill is upgraded
 
     public abstract void Apply(PlayerStats stats);
 }

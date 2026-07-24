@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Jobs;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "Scriptable Object/PlayerStats")]
@@ -48,6 +49,51 @@ public class PlayerStats : ScriptableObject {
                 break;
         }
 
+    }
+
+    // Skill Methods
+
+    public bool CanAfford(int cost) => vampBlood >= cost;
+
+    public void SpendBlood(int vampBloodAmount) {
+        if (CanAfford(vampBloodAmount))
+        {
+        vampBlood -= vampBloodAmount;
+        }
+
+        if (vampBlood < 0)
+        {
+            vampBlood = 0;
+        }
+
+    }
+
+    public void GainBlood(int vampBloodAmount)
+    {
+        vampBlood += vampBloodAmount;
+    }
+
+     public int GetSkillLevel(int skillId)
+    {
+        int index = skillList.IndexOf(skillId);
+        return index >= 0 ? skillLevel[index] : 0;
+    }
+
+    public void SetSkillLevel(int skillId, int level)
+    {
+        int index = skillList.IndexOf(skillId);
+        if (index >= 0)
+            skillLevel[index] = level;
+        else
+        {
+            skillList.Add(skillId);
+            skillLevel.Add(level);
+        }
+    }
+
+    public bool IsSkillMaxed(int skillId, int maxLevel)
+    {
+        return GetSkillLevel(skillId) >= maxLevel;
     }
 
 }
