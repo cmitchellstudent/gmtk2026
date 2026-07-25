@@ -330,7 +330,6 @@ GameObject:
   - component: {fileID: 208869063}
   - component: {fileID: 208869062}
   - component: {fileID: 208869061}
-  - component: {fileID: 208869064}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -366,9 +365,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 208869059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b75b3b12905c6c4888e258448f86610, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c1f5ba17813be843a49f2638eb21a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerStats: {fileID: 11400000, guid: 4a4df8aa6fa09524aaef8e197104d6d8, type: 2}
+  UIText: {fileID: 208869062}
+  currentHealth: {fileID: 1681260275}
 --- !u!114 &208869062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,21 +471,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208869059}
   m_CullTransparentMesh: 1
---- !u!114 &208869064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208869059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c1f5ba17813be843a49f2638eb21a1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathCountDown
-  maxSeconds: 3
-  UIText: {fileID: 208869062}
-  currentHealth: {fileID: 1681260275}
 --- !u!1 &373184991
 GameObject:
   m_ObjectHideFlags: 0
@@ -11516,7 +11503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1f5ba17813be843a49f2638eb21a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathCountDown
-  maxSeconds: 3
+  playerStats: {fileID: 0}
   UIText: {fileID: 208869062}
   currentHealth: {fileID: 1681260275}
 --- !u!1 &644355337
@@ -14022,7 +14009,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2080695687}
   - component: {fileID: 2080695686}
-  - component: {fileID: 2080695689}
   - component: {fileID: 2080695688}
   - component: {fileID: 2080695690}
   - component: {fileID: 2080695691}
@@ -14125,7 +14111,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8d3c650dc5afb0440b8e9ef959aeeb26, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14136,18 +14122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2080695689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080695685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284af559615fadf48b92f62b383ef1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!61 &2080695690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14206,10 +14180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae8ce924bb6adc45b2e5fd95df72a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
-  rb: {fileID: 0}
+  rb: {fileID: 2080695688}
   speed: 10
   collider: {fileID: 2080695690}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 1681260275}
   damageToPlayer: 10
 --- !u!1001 &188086466560849327
 PrefabInstance:

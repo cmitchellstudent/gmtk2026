@@ -33,7 +33,7 @@ public class UpgradeTreeManager : MonoBehaviour
     private void Update()
     {
         if (skillBloodCostText != null) {
-            skillBloodCostText.text = $"Blood: {playerStats.getVampBlood()}";
+            skillBloodCostText.text = $"Blood: {playerStats.GetVampBlood()}";
         }
     }
 

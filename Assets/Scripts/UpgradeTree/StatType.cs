@@ -4,5 +4,6 @@ public enum StatType  {
     jumpAmount,
     dashCooldown,
     vampBlood,
-    damageAmount
+    damageAmount,
+    timeToLive
 }

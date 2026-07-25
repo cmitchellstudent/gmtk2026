@@ -9,14 +9,12 @@ public class SkillNode : MonoBehaviour
     public SkillData skillData;
 
     private UpgradeTreeManager treeManager;
-
-
     private Button button;
     private int skillId;
     [SerializeField] private System.Drawing.Image skillIcon;
-    private TMP_Text skillName;
-    private TMP_Text skillDesc;
-    private TMP_Text skillBloodCost;
+    private readonly TMP_Text skillName;
+    private readonly TMP_Text skillDesc;
+    private readonly TMP_Text skillBloodCost;
     private int skillMaxUpgrade;
 
     private void Awake()
@@ -31,13 +29,8 @@ public class SkillNode : MonoBehaviour
         skillId = skillData.skillId;
         skillName.SetText(skillData.skillName);
         skillDesc.SetText(skillData.skillDescription);
-        skillBloodCost.text = skillData.vampBloodCost.ToString();
+        skillBloodCost.SetText(skillData.vampBloodCost.ToString());
         skillMaxUpgrade = skillData.maxLevel;
-    }
-
-    void Selected()
-    {
-        
     }
 
     public void UpdateVisuals(int currentLevel, bool isMaxed)

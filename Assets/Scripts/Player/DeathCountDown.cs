@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DeathCountDown : MonoBehaviour
 {
-    public float maxSeconds = 3;
-    private float timeleft = 3;
+    [SerializeField] private PlayerStats playerStats;
+    public float maxSeconds => playerStats != null ? playerStats.GetTimeToLive() : 3f;
+    private float timeleft;
     public TextMeshProUGUI UIText;
-    public PlayerHealth currentHealth; //call this to die
-    
+    [SerializeField] private PlayerHealth currentHealth; //call this to die
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,8 +20,9 @@ public class DeathCountDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UIText.text = timeleft.ToString("00");
-        if (timeleft <= 0)
+        if (UIText != null)
+            UIText.text = timeleft.ToString("00");
+        if (timeleft <= 0 && currentHealth != null)
         {
             currentHealth.Die();
         }
@@ -28,9 +30,9 @@ public class DeathCountDown : MonoBehaviour
     private IEnumerator DecreaseTimer()
     {
         //Debug.Log(timeleft);
-        yield return new WaitForSeconds(1.0f); 
-        timeleft-= 1;
+        yield return new WaitForSeconds(1.0f);
+        timeleft -= 1;
         StartCoroutine(DecreaseTimer());
     }
-    
+
 }

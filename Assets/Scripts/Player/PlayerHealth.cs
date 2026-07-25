@@ -16,9 +16,9 @@ public class PlayerHealth : MonoBehaviour
     {
         isInvincible = false;
         invincibleIcon.enabled = false;
-        healthSlider.maxValue = playerStats.getMaxHealth(); 
+        healthSlider.maxValue = playerStats.GetMaxHealth(); 
         healthSlider.value = currentHealth;
-        currentHealth = (int)playerStats.getMaxHealth(); 
+        currentHealth = (int)playerStats.GetMaxHealth(); 
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     public void IncreaseHealth(int amount)
     {
         currentHealth += amount;
-        if (currentHealth > playerStats.getMaxHealth()) currentHealth = (int)playerStats.getMaxHealth();
+        if (currentHealth > playerStats.GetMaxHealth()) currentHealth = (int)playerStats.GetMaxHealth();
     }
 
     public void TakeDamage(int amount)

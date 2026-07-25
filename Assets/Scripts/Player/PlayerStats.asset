@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7083c9228585f48b9d41f6de1b4675, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  playerSpeed: 1
+  playerSpeed: 4
   maxHealth: 100
   jumpAmount: 1
   dashCooldown: 0.2
   damageAmount: 2
-  vampBlood: 50
+  vampBlood: 22
+  timeToLive: 3
   skillList: 
   skillLevel: 
