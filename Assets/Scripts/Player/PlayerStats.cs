@@ -79,12 +79,13 @@ public class PlayerStats : ScriptableObject{
         return index >= 0 ? skillLevel[index] : 0;
     }
 
-    public void SetSkillLevel(int skillId, int level)
+    //setskill checks if the skill is already obtained and increases level if so
+    public void SetSkill(int skillId, int level)
     {
         int index = skillList.IndexOf(skillId);
         if (index >= 0)
             skillLevel[index] = level;
-        else
+        else // if skill hasent been obtained yet add the id to the list and its level.
         {
             skillList.Add(skillId);
             skillLevel.Add(level);

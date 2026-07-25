@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class SkillData : ScriptableObject
 {
-    public string skillId;
+    public int skillId;
     public string skillName;
     [TextArea(2, 4)]
     public string skillDescription;

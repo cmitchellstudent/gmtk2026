@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9ad4acda12c384296992f075b17bf7, type: 3}
   m_Name: SpeedUp
   m_EditorClassIdentifier: Assembly-CSharp::SpeedUpSkill
-  skillId: 
-  skillName: 
-  skillDescription: 
+  skillId: 0
+  skillName: Fast Feet
+  skillDescription: desc
   vampBloodCost: 1
-  icon: {fileID: 0}
+  icon: {fileID: 2607869724981903990, guid: 557bbad5e95bf614aadfd16b299bb1ff, type: 3}
   maxLevel: 1
   unlockedSkillIds: []
   upgradeSpeedAmount: 1

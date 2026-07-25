@@ -17,6 +17,6 @@ MonoBehaviour:
   jumpAmount: 1
   dashCooldown: 0.2
   damageAmount: 2
-  vampBlood: 0
+  vampBlood: 50
   skillList: 
   skillLevel: 
