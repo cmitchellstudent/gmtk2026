@@ -1,5 +1,3 @@
-using System.Drawing;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +10,9 @@ public class SkillNode : MonoBehaviour
     private Button button;
     private int skillId;
     [SerializeField] private System.Drawing.Image skillIcon;
-    private readonly TMP_Text skillName;
-    private readonly TMP_Text skillDesc;
-    private readonly TMP_Text skillBloodCost;
+    [SerializeField] private TMP_Text skillName;
+    [SerializeField] private TMP_Text skillDesc;
+    [SerializeField] private TMP_Text skillBloodCost;
     private int skillMaxUpgrade;
 
     private void Awake()
@@ -22,14 +20,12 @@ public class SkillNode : MonoBehaviour
         button = GetComponent<Button>();
         treeManager = FindAnyObjectByType<UpgradeTreeManager>();
         button.onClick.AddListener(() => treeManager.SelectSkill(this));
-    }
-    void Start()
-    {
+
         if (skillData == null) return;
         skillId = skillData.skillId;
-        skillName.SetText(skillData.skillName);
-        skillDesc.SetText(skillData.skillDescription);
-        skillBloodCost.SetText(skillData.vampBloodCost.ToString());
+        if (skillName != null) skillName.text = skillData.skillName.ToString();
+        if (skillDesc != null) skillDesc.text = skillData.skillDescription.ToString();
+        if (skillBloodCost != null) skillBloodCost.text = skillData.vampBloodCost.ToString();
         skillMaxUpgrade = skillData.maxLevel;
     }
 
@@ -52,7 +48,7 @@ public class SkillNode : MonoBehaviour
             // if visible but not obtained
         }
 
-        skillBloodCost.text = isMaxed ? "MAX" : skillData.vampBloodCost.ToString();
+        if (skillBloodCost != null) skillBloodCost.text = isMaxed ? "MAX" : skillData.vampBloodCost.ToString();
     }
 
 }
