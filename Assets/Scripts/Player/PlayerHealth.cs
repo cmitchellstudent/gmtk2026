@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
+    [SerializeField] private PlayerStats playerStats;
     public Slider healthSlider;
     public Image invincibleIcon;
     [HideInInspector]public int currentHealth;
@@ -16,9 +16,9 @@ public class PlayerHealth : MonoBehaviour
     {
         isInvincible = false;
         invincibleIcon.enabled = false;
-        healthSlider.maxValue = maxHealth;
+        healthSlider.maxValue = playerStats.GetMaxHealth(); 
         healthSlider.value = currentHealth;
-        currentHealth = maxHealth;
+        currentHealth = (int)playerStats.GetMaxHealth(); 
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     public void IncreaseHealth(int amount)
     {
         currentHealth += amount;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        if (currentHealth > playerStats.GetMaxHealth()) currentHealth = (int)playerStats.GetMaxHealth();
     }
 
     public void TakeDamage(int amount)

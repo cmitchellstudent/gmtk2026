@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public PlayerUpgrades playerUpgrades;
+    public PlayerStats playerStats;
     public Button ExitButton;
     public Button StartButton;
     
@@ -21,10 +21,11 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    // on new game set player stats to default
     void NewGame()
     {
-        playerUpgrades.setSpeed(1);
-        playerUpgrades.setMaxHealth(10);
+        playerStats.SetStat(StatType.speed, 1);
+        playerStats.SetStat(StatType.maxHealth, 10);
         SceneManager.LoadScene("Demo");
     }
 
