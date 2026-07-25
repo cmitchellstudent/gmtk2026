@@ -147,10 +147,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100712651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09964f2067af08f4f972e3312752f1f6, type: 3}
+  m_Script: {fileID: 11500000, guid: cd6689016d69fd54d834f15efd37fdc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  playerHealth: {fileID: 1681260270}
+  playerHealth: {fileID: 1681260275}
   healAmount: 10
 --- !u!212 &100712653
 SpriteRenderer:
@@ -374,13 +374,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 208869059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b75b3b12905c6c4888e258448f86610, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c1f5ba17813be843a49f2638eb21a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxSeconds: 99
+  playerStats: {fileID: 11400000, guid: 4a4df8aa6fa09524aaef8e197104d6d8, type: 2}
   UIText: {fileID: 208869062}
-  playerHealth: {fileID: 1681260270}
-  alertSound: {fileID: 208869064}
+  currentHealth: {fileID: 1681260275}
 --- !u!114 &208869062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +400,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Timer
+  m_text: 'Timer
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -603,7 +604,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218720765}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4787077804463291252, guid: 136de34726435ca4fa89f7efd0b24584,
     type: 2}
@@ -12616,7 +12617,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1865938916563621656}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1681260270
+--- !u!114 &1681260275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12625,10 +12626,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1681260265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359e8c123c9b2ea4fa4283d51505c295, type: 3}
+  m_Script: {fileID: 11500000, guid: b46f357831a5fdb4b82700b1a500f702, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  maxHealth: 100
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerStats: {fileID: 11400000, guid: 4a4df8aa6fa09524aaef8e197104d6d8, type: 2}
   healthSlider: {fileID: 1833015405}
   invincibleIcon: {fileID: 961783353}
   currentHealth: 0
@@ -14610,13 +14611,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2080695685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284af559615fadf48b92f62b383ef1fb, type: 3}
+  m_Script: {fileID: 11500000, guid: cae8ce924bb6adc45b2e5fd95df72a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   rb: {fileID: 2080695688}
-  speed: 5
+  speed: 10
   collider: {fileID: 2080695690}
-  playerHealth: {fileID: 1681260270}
+  playerHealth: {fileID: 1681260275}
   damageToPlayer: 10
 --- !u!61 &2080695690
 BoxCollider2D:
@@ -14807,6 +14808,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1865938915375051438, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
         type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a4df8aa6fa09524aaef8e197104d6d8,
+        type: 2}
+    - target: {fileID: 1865938915375051438, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
+        type: 3}
       propertyPath: playerUpgrades
       value: 
       objectReference: {fileID: 11400000, guid: 684c471ff0d5f664b9e72178cf9e9e05,
@@ -14839,7 +14846,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1865938915375051437, guid: 3c02ac99ebd71b24cb0f7c53261c4241,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1681260270}
+      addedObject: {fileID: 1681260275}
   m_SourcePrefab: {fileID: 100100000, guid: 3c02ac99ebd71b24cb0f7c53261c4241, type: 3}
 --- !u!1001 &2644038771478693182
 PrefabInstance:
