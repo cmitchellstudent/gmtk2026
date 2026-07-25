@@ -21,6 +21,7 @@ namespace SupanthaPaul
 		[SerializeField] private GameObject dashEffect;
 
 		// Access needed for handling animation in Player script and other uses
+		[HideInInspector] public bool isAttacking;
 		[HideInInspector] public bool isGrounded;
 		[HideInInspector] public float moveInput;
 		[HideInInspector] public bool canMove = true;
@@ -46,6 +47,7 @@ namespace SupanthaPaul
 		private int m_extraJumps;
 		private float m_extraJumpForce;
 		private float m_dashTime;
+		private float m_attackTime = 0.1f;
 		private bool m_hasDashedInAir = false;
 		private bool m_onWall = false;
 		private bool m_onRightWall = false;
@@ -145,7 +147,7 @@ namespace SupanthaPaul
 							m_rb.linearVelocity = Vector2.left * dashSpeed;
 					}
 				}
-
+				
 				// wall grab
 				if(m_onWall && !isGrounded && m_rb.linearVelocity.y <= 0f && m_playerSide == m_onWallSide)
 				{
@@ -181,7 +183,8 @@ namespace SupanthaPaul
 		{
 			// horizontal input
 			moveInput = InputSystem.HorizontalRaw();
-
+			isAttacking = InputSystem.Attack();
+			
 			if (isGrounded)
 			{
 				m_extraJumps = (int)playerStats.GetJumpAmount() - 1;
@@ -276,6 +279,11 @@ namespace SupanthaPaul
 				m_playerSide = -1;
 		}
 
+		public void EndAttack()
+		{
+			Debug.Log("attack end");
+			isAttacking = false;
+		}
 		private void OnDrawGizmosSelected()
 		{
 			Gizmos.color = Color.red;

@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UpgradeTree.unity
     guid: f38738581a554ce419d5b3782f7943a6
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 3c1e16b79d47b5543b00d9897a2ebf1a,
+      type: 2}

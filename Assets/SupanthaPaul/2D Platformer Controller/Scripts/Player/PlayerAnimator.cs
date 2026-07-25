@@ -12,6 +12,7 @@ namespace SupanthaPaul
 		private static readonly int IsJumping = Animator.StringToHash("IsJumping");
 		private static readonly int WallGrabbing = Animator.StringToHash("WallGrabbing");
 		private static readonly int IsDashing = Animator.StringToHash("IsDashing");
+		private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
 		private void Start()
 		{
@@ -49,6 +50,7 @@ namespace SupanthaPaul
 
 			// dash animation
 			m_anim.SetBool(IsDashing, m_controller.isDashing);
+			m_anim.SetBool(IsAttacking, m_controller.isAttacking);
 		}
 	}
 }
