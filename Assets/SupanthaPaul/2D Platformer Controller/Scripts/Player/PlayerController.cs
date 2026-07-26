@@ -76,7 +76,6 @@ namespace SupanthaPaul
 
 			m_extraJumps = (int)playerStats.GetJumpAmount() - 1; // use dynamic player stats value for amount of total jumps. getJumpAmount starts at 1 representing one jump
 			m_dashTime = startDashTime;
-			m_dashCooldown = playerStats.GetDashCooldown(); // dynamic 
 			m_extraJumpForce = jumpForce * 0.7f;
 
 			m_rb = GetComponent<Rigidbody2D>();
@@ -134,7 +133,6 @@ namespace SupanthaPaul
 					if (m_dashTime <= 0f)
 					{
 						isDashing = false;
-						m_dashCooldown = playerStats.GetDashCooldown();
 						m_dashTime = startDashTime;
 						m_rb.linearVelocity = Vector2.zero;
 					}
