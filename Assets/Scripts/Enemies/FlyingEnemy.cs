@@ -7,7 +7,7 @@ public class FlyingEnemy : MonoBehaviour
 
     public int speed = 10;
 
-    public BoxCollider2D collider;
+    //public BoxCollider2D collider;
     private Vector2 currVelocity;
     public PlayerHealth playerHealth; //script on player
 
