@@ -26,7 +26,7 @@ public class UpgradeTreeManager : MonoBehaviour
     void Start()
     {
         
-        selectedSkill.UpdateVisuals();
+        //selectedSkill.UpdateVisuals();
         startButton.onClick.AddListener(StartRun);
         buySkillButton.onClick.AddListener(BuySkill);
     }

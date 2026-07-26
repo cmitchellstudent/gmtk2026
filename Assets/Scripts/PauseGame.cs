@@ -7,11 +7,13 @@ public class PauseGame : MonoBehaviour
     private bool isPaused;
     [SerializeField] Canvas pauseCanvas;
     [SerializeField] AudioMixer audioMixer;
-
+    [SerializeField] private Settings _settings;
     [SerializeField] private Slider audioSlider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSlider.value = _settings.GetVolume();
+        audioSlider.onValueChanged.AddListener(_settings.SetVolume);
         pauseCanvas.enabled = false;
     }
 
