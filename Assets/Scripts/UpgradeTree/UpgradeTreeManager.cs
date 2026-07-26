@@ -25,6 +25,8 @@ public class UpgradeTreeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+            selectedSkill.UpdateVisuals();
         startButton.onClick.AddListener(StartRun);
         buySkillButton.onClick.AddListener(BuySkill);
     }
@@ -33,7 +35,17 @@ public class UpgradeTreeManager : MonoBehaviour
     private void Update()
     {
         if (skillBloodCostText != null) {
-            skillBloodCostText.text = $"Blood: {playerStats.GetVampBlood()}";
+            skillBloodCostText.text = $"Vamp Blood: {playerStats.GetVampBlood()}";
+        }
+        if (skillMaxUpgradeText != null && selectedSkill != null)
+        {
+            var playerSkillLevel = playerStats.GetSkillLevel(selectedSkill.skillData.skillId);
+            if (playerSkillLevel == 0)
+            {
+                skillMaxUpgradeText.text = $"unequiped/{selectedSkill.skillData.maxLevel}";
+            } else {
+                skillMaxUpgradeText.text = $"{playerSkillLevel}/{selectedSkill.skillData.maxLevel}";
+            }
         }
     }
 
@@ -52,7 +64,7 @@ public class UpgradeTreeManager : MonoBehaviour
         skillDescText.text = currSkill.skillDescription;
 
         bool maxed = playerStats.IsSkillMaxed(currSkill.skillId, currSkill.maxLevel);
-        
+
         skillBloodCostText.text = maxed ? "MAX" : currSkill.vampBloodCost.ToString();
         buySkillButton.interactable = !maxed && playerStats.CanAfford(currSkill.vampBloodCost);
 
@@ -61,7 +73,7 @@ public class UpgradeTreeManager : MonoBehaviour
     private void BuySkill()
     {
         var currSkill = selectedSkill.skillData;
-        
+
         // if there is no skill or its maxed dont let player buy
         if (selectedSkill == null || playerStats.IsSkillMaxed(currSkill.skillId, currSkill.maxLevel))
         {
@@ -74,7 +86,7 @@ public class UpgradeTreeManager : MonoBehaviour
                 currSkill.skillId,
                 playerStats.GetSkillLevel(currSkill.skillId) + 1
                 );
-            
+
             //apply skill effect to player
             currSkill.Apply(playerStats);
 
@@ -82,6 +94,6 @@ public class UpgradeTreeManager : MonoBehaviour
             // show children
 
             // refresh UI
+            selectedSkill.UpdateVisuals();
     }
-    
 }

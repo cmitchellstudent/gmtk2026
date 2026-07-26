@@ -20,9 +20,9 @@ public class PlayerStats : ScriptableObject{
     // stat getters
     public float GetPlayerSpeed() => playerSpeed;
     public float GetMaxHealth() => maxHealth;
-    public float GetJumpAmount() => jumpAmount;
+    public int GetJumpAmount() => jumpAmount;
     public float GetDashCooldown() => dashCooldown;
-    public float GetVampBlood() => vampBlood;
+    public int GetVampBlood() => vampBlood;
 
     public float GetTimeToLive() => timeToLive; 
 
@@ -79,7 +79,7 @@ public class PlayerStats : ScriptableObject{
         vampBlood += vampBloodAmount;
     }
 
-     public int GetSkillLevel(int skillId)
+    public int GetSkillLevel(int skillId)
     {
         int index = skillList.IndexOf(skillId);
         return index >= 0 ? skillLevel[index] : 0;
