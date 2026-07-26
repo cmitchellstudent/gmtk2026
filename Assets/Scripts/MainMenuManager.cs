@@ -26,6 +26,14 @@ public class MainMenuManager : MonoBehaviour
     {
         playerStats.SetStat(StatType.speed, 1);
         playerStats.SetStat(StatType.maxHealth, 10);
+        playerStats.SetStat(StatType.jumpAmount, 0);
+        playerStats.SetStat(StatType.vampBlood,0);
+        playerStats.SetStat(StatType.timeToLive, 5);
+        playerStats.SetStat(StatType.attackPower, 1);
+        playerStats.timerTier = 0;
+        playerStats.speedTier = 0;
+        playerStats.healthTier = 0;
+        playerStats.strengthTier = 0;
         SceneManager.LoadScene("Demo");
     }
 

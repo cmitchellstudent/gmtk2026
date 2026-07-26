@@ -11,6 +11,11 @@ public class PlayerStats : ScriptableObject{
     [SerializeField] private int vampBlood = 0; // currency for upgrades 
     [SerializeField] private float timeToLive = 3f;
     [SerializeField] private float attackPower = 1f;
+
+    public int speedTier;
+    public int healthTier;
+    public int strengthTier;
+    public int timerTier;
     
     // this mainly works because they have the same index when one gets removed or added
     [SerializeField] private List<int> skillList = new List<int>(); // contains the id of the skill the player has 
