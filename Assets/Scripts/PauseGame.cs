@@ -18,7 +18,7 @@ public class PauseGame : MonoBehaviour
     private void Awake()
     {
         Pause();
-        audioSlider.value = _settings.GetVolume();
+        audioSlider.value = PlayerPrefs.GetFloat("Volume");
         Unpause();
     }
 
@@ -34,7 +34,7 @@ public class PauseGame : MonoBehaviour
     void Update()
     {
         audioMixer.SetFloat("Volume", audioSlider.value);
-        _settings.SetVolume(audioSlider.value);
+        PlayerPrefs.SetFloat("Volume", audioSlider.value);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //Debug.Log(isPaused);
