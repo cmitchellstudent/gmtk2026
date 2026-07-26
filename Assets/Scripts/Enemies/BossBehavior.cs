@@ -66,7 +66,7 @@ public class BossBehavior : MonoBehaviour
     {
         //Debug.Log(damage);
         currentHealth -= damage;
-        rb.AddForce((GetVectorAwayFromPlayer()) * speed, ForceMode2D.Impulse);
+        rb.AddForce((GetVectorAwayFromPlayer()) * speed * 5, ForceMode2D.Impulse);
     }
 
     public Vector2 GetVectorAwayFromPlayer()
@@ -90,6 +90,6 @@ public class BossBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         coroutineRunning = false;
-        rb.linearVelocity = (GetVectorAwayFromPlayer()) * speed;
+        rb.linearVelocity = (GetVectorAwayFromPlayer()) * (speed * 5);
     }
 }
