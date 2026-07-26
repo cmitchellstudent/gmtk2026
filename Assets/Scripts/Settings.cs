@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Settings", menuName = "Scriptable Objects/Settings")]
 public class Settings : ScriptableObject
 {
-    private float volumeSetting;
+    [SerializeField] private float volumeSetting;
 
     public void SetVolume(float val)
     {

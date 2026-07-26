@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -10,9 +11,15 @@ public class PauseGame : MonoBehaviour
     [SerializeField] private Settings _settings;
     [SerializeField] private Slider audioSlider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Awake()
     {
         audioSlider.value = _settings.GetVolume();
+    }
+
+    void Start()
+    {
+        //audioSlider.value = _settings.GetVolume();
         audioSlider.onValueChanged.AddListener(_settings.SetVolume);
         pauseCanvas.enabled = false;
     }
@@ -23,7 +30,7 @@ public class PauseGame : MonoBehaviour
         audioMixer.SetFloat("Volume", audioSlider.value);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log(isPaused);
+            //Debug.Log(isPaused);
             if (isPaused)
             {
                 Unpause();

@@ -237,7 +237,7 @@ namespace SupanthaPaul
 			{
 				m_wallGrabbing = false;
 				m_wallJumping = true;
-				Debug.Log("Wall jumped");
+				//Debug.Log("Wall jumped");
 				m_extraJumps = 1;
 				if (m_playerSide == m_onWallSide)
 					Flip();
@@ -247,7 +247,7 @@ namespace SupanthaPaul
 			{
 				m_wallGrabbing = false;
 				m_wallJumping = true;
-				Debug.Log("Wall climbed");
+				//Debug.Log("Wall climbed");
 				m_extraJumps = 1;
 				if (m_playerSide == m_onWallSide)
 					Flip();

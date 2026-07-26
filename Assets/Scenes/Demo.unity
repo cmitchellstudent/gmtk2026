@@ -12539,6 +12539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseGame
   pauseCanvas: {fileID: 1994971633}
   audioMixer: {fileID: 24100000, guid: 136de34726435ca4fa89f7efd0b24584, type: 2}
+  _settings: {fileID: 11400000, guid: 6f88eaa55c4c33044b1fbe9b8aad2bbc, type: 2}
   audioSlider: {fileID: 734264465}
 --- !u!1 &1123820802
 GameObject:
