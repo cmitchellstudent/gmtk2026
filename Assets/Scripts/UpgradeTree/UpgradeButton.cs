@@ -67,6 +67,8 @@ public class UpgradeButton : MonoBehaviour, IPointerEnterHandler
                 }
                 else
                 {
+                    currentTier--;
+                    playerStats.GainBlood(cost);
                     thisbutton.interactable = false;
                 }
                 
