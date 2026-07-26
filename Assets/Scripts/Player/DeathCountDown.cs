@@ -9,6 +9,7 @@ public class DeathCountDown : MonoBehaviour
     private float timeleft;
     public TextMeshProUGUI UIText;
     [SerializeField] private PlayerHealth currentHealth; //call this to die
+    public AudioSource alertSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,7 @@ public class DeathCountDown : MonoBehaviour
     private IEnumerator DecreaseTimer()
     {
         //Debug.Log(timeleft);
+        if (timeleft <= 3) alertSound.Play();
         yield return new WaitForSeconds(1.0f);
         timeleft -= 1;
         StartCoroutine(DecreaseTimer());
