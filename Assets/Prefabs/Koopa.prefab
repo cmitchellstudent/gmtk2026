@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1022592730957983487}
   - component: {fileID: 8808612602164974314}
   - component: {fileID: 6160588259622600807}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Koopa
   m_TagString: Koopa
   m_Icon: {fileID: 0}
@@ -136,17 +136,17 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 6967
+    m_Bits: 6455
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 6967
+    m_Bits: 6455
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
