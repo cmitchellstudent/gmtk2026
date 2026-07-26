@@ -47,8 +47,8 @@ namespace SupanthaPaul
 		private int m_extraJumps;
 		private float m_extraJumpForce;
 		private float m_dashTime;
-		private float m_attackTime = 0.1f;
-		private bool m_hasDashedInAir = false;
+		//private float m_attackTime = 0.1f;
+		//private bool m_hasDashedInAir = false;
 		private bool m_onWall = false;
 		private bool m_onRightWall = false;
 		private bool m_onLeftWall = false;
@@ -197,6 +197,7 @@ namespace SupanthaPaul
 
 			if (!isCurrentlyPlayable) return;
 			// if not currently dashing and hasn't already dashed in air once
+			/*
 			if (!isDashing && !m_hasDashedInAir && m_dashCooldown <= 0f)
 			{
 				// dash input (left shift)
@@ -218,7 +219,7 @@ namespace SupanthaPaul
 			// if has dashed in air once but now grounded
 			if (m_hasDashedInAir && isGrounded)
 				m_hasDashedInAir = false;
-			
+			*/
 			// Jumping
 			if(InputSystem.Jump() && m_extraJumps > 0 && !isGrounded && !m_wallGrabbing)	// extra jumping
 			{

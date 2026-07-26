@@ -32,7 +32,7 @@ public class playerAttackSpawner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         if (other.gameObject.CompareTag("Koopa") || other.gameObject.CompareTag("FlyingEnemy"))
         {
             Destroy(other.gameObject);
