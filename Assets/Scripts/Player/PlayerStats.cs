@@ -17,6 +17,7 @@ public class PlayerStats : ScriptableObject{
     public int strengthTier;
     public int timerTier;
     public bool hasDoubleJump;
+    public bool hasWallJump;
     
     // this mainly works because they have the same index when one gets removed or added
     [SerializeField] private List<int> skillList = new List<int>(); // contains the id of the skill the player has 

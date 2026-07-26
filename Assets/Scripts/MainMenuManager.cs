@@ -25,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
     void NewGame()
     {
         playerStats.hasDoubleJump = false;
+        playerStats.hasWallJump = false;
         playerStats.SetStat(StatType.speed, 1);
         playerStats.SetStat(StatType.maxHealth, 10);
         playerStats.SetStat(StatType.jumpAmount, 1);
