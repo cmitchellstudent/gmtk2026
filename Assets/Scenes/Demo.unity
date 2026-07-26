@@ -17925,11 +17925,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc1778ebd80a1b409881e3874150c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 10
-  damageToPlayer: 10
   rb: {fileID: 1877002322}
   sr: {fileID: 1877002319}
+  speed: 10
   playerHealth: {fileID: 1681260275}
+  damageToPlayer: 10
 --- !u!4 &1918362599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6870547127996264523, guid: 343ec394186a7364a93afb701d834e13,

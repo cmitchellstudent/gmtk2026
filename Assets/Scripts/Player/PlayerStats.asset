@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   playerSpeed: 6
-  maxHealth: 10
+  maxHealth: 100
   jumpAmount: 1
-  dashCooldown: 0.2
-  damageAmount: 2
   vampBlood: 2
   timeToLive: 9999
+  attackPower: 1
   skillList: 02000000
   skillLevel: 14000000
