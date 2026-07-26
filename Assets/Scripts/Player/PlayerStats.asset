@@ -17,6 +17,6 @@ MonoBehaviour:
   jumpAmount: 1
   vampBlood: 2
   timeToLive: 9999
-  attackPower: 1
+  attackPower: 20
   skillList: 02000000
   skillLevel: 14000000

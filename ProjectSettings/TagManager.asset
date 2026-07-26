@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Koopa
   - FlyingEnemy
+  - Boss
   layers:
   - Default
   - TransparentFX

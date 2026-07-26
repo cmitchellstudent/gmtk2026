@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class playerAttackSpawner : MonoBehaviour
 {
+    [SerializeField] private PlayerStats playerStats;
     [SerializeField] private BoxCollider2D attackHitbox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +37,12 @@ public class playerAttackSpawner : MonoBehaviour
         if (other.gameObject.CompareTag("Koopa") || other.gameObject.CompareTag("FlyingEnemy"))
         {
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            var bossScript = other.GetComponent<BossBehavior>();
+            bossScript.TakeDamage((int)playerStats.GetAttackPower());
         }
     }
 }

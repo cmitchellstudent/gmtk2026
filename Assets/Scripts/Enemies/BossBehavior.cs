@@ -1,13 +1,19 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBehavior : MonoBehaviour
 {
     public Rigidbody2D rb;
     public SpriteRenderer sr;
+    public GameObject player;
 
     public int speed = 10;
 
+    public int bossMaxHealth = 200;
+    private int currentHealth;
+    
+    [SerializeField] private Slider BossHealthBar;
     //public BoxCollider2D collider;
     private Vector2 currVelocity;
     public PlayerHealth playerHealth; //script on player
@@ -18,14 +24,21 @@ public class BossBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        BossHealthBar.maxValue = bossMaxHealth;
+        BossHealthBar.value = bossMaxHealth;
+        currentHealth = bossMaxHealth;
+        
+        
         rb.linearVelocity = (Vector2.up + Vector2.right) * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //storing vel to check if theyre stuck
         currVelocity = rb.linearVelocity;
 
+        //flipping the sprite for facing its velocity
         if (rb.linearVelocity.x > 0f)
         {
             sr.flipX = false;
@@ -33,12 +46,32 @@ public class BossBehavior : MonoBehaviour
         {
             sr.flipX = true;
         }
+        //clamping max velocity
+        if (rb.linearVelocity.magnitude > speed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * speed;
+        }
         
+        //if stuck, start moving
         if (rb.linearVelocity == Vector2.zero && !coroutineRunning)
         {
             coroutineRunning = true;
             StartCoroutine(startFlying());
         }
+        
+        BossHealthBar.value = currentHealth;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        //Debug.Log(damage);
+        currentHealth -= damage;
+        rb.AddForce((GetVectorAwayFromPlayer()) * speed, ForceMode2D.Impulse);
+    }
+
+    public Vector2 GetVectorAwayFromPlayer()
+    {
+        return (gameObject.transform.position - player.gameObject.transform.position).normalized;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,7 +90,6 @@ public class BossBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         coroutineRunning = false;
-        rb.linearVelocity = (Vector2.up + Vector2.right) * speed;
-        
+        rb.linearVelocity = (GetVectorAwayFromPlayer()) * speed;
     }
 }
