@@ -7,7 +7,7 @@ public class PlayerStats : ScriptableObject{
 //All Public Player Stats Shown Hereuu
     [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private int jumpAmount = 1; // double jump starts at 2
+    [SerializeField] private int jumpAmount = 1; // double jump starts at 1
     [SerializeField] private int vampBlood = 0; // currency for upgrades 
     [SerializeField] private float timeToLive = 3f;
     [SerializeField] private float attackPower = 1f;
@@ -16,6 +16,7 @@ public class PlayerStats : ScriptableObject{
     public int healthTier;
     public int strengthTier;
     public int timerTier;
+    public bool hasDoubleJump;
     
     // this mainly works because they have the same index when one gets removed or added
     [SerializeField] private List<int> skillList = new List<int>(); // contains the id of the skill the player has 

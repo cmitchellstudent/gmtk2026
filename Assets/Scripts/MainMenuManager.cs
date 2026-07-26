@@ -24,9 +24,10 @@ public class MainMenuManager : MonoBehaviour
     // on new game set player stats to default
     void NewGame()
     {
+        playerStats.hasDoubleJump = false;
         playerStats.SetStat(StatType.speed, 1);
         playerStats.SetStat(StatType.maxHealth, 10);
-        playerStats.SetStat(StatType.jumpAmount, 0);
+        playerStats.SetStat(StatType.jumpAmount, 1);
         playerStats.SetStat(StatType.vampBlood,0);
         playerStats.SetStat(StatType.timeToLive, 5);
         playerStats.SetStat(StatType.attackPower, 1);

@@ -74,7 +74,7 @@ namespace SupanthaPaul
 			if (transform.CompareTag("Player"))
 				isCurrentlyPlayable = true;
 
-			m_extraJumps = (int)playerStats.GetJumpAmount() - 1; // use dynamic player stats value for amount of total jumps. getJumpAmount starts at 1 representing one jump
+			m_extraJumps = (int)playerStats.GetJumpAmount(); // use dynamic player stats value for amount of total jumps. getJumpAmount starts at 1 representing one jump
 			m_dashTime = startDashTime;
 			m_extraJumpForce = jumpForce * 0.7f;
 
@@ -185,7 +185,7 @@ namespace SupanthaPaul
 			
 			if (isGrounded)
 			{
-				m_extraJumps = (int)playerStats.GetJumpAmount() - 1;
+				m_extraJumps = (int)playerStats.GetJumpAmount();
 			}
 
 			// grounded remember offset (for more responsive jump)
@@ -219,8 +219,10 @@ namespace SupanthaPaul
 				m_hasDashedInAir = false;
 			*/
 			// Jumping
-			if(InputSystem.Jump() && m_extraJumps > 0 && !isGrounded && !m_wallGrabbing)	// extra jumping
+			//Debug.Log(isGrounded);
+			if(InputSystem.Jump() && m_extraJumps > 0 && !isGrounded && !m_wallGrabbing && playerStats.hasDoubleJump)	// extra jumping
 			{
+				Debug.Log(playerStats.hasDoubleJump);
 				m_rb.linearVelocity = new Vector2(m_rb.linearVelocity.x, m_extraJumpForce); ;
 				m_extraJumps--;
 				// jumpEffect
@@ -228,6 +230,7 @@ namespace SupanthaPaul
 			}
 			else if(InputSystem.Jump() && (isGrounded || m_groundedRemember > 0f))	// normal single jumping
 			{
+				m_groundedRemember = 0f;
 				m_rb.linearVelocity = new Vector2(m_rb.linearVelocity.x, jumpForce);
 				// jumpEffect
 				PoolManager.instance.ReuseObject(jumpEffect, groundCheck.position, Quaternion.identity);
@@ -237,7 +240,7 @@ namespace SupanthaPaul
 				m_wallGrabbing = false;
 				m_wallJumping = true;
 				//Debug.Log("Wall jumped");
-				m_extraJumps = 1;
+				m_extraJumps = playerStats.GetJumpAmount();
 				if (m_playerSide == m_onWallSide)
 					Flip();
 				m_rb.AddForce(new Vector2(-m_onWallSide * wallJumpForce.x, wallJumpForce.y), ForceMode2D.Impulse);
@@ -247,7 +250,7 @@ namespace SupanthaPaul
 				m_wallGrabbing = false;
 				m_wallJumping = true;
 				//Debug.Log("Wall climbed");
-				m_extraJumps = 1;
+				m_extraJumps = playerStats.GetJumpAmount();
 				if (m_playerSide == m_onWallSide)
 					Flip();
 				m_rb.AddForce(new Vector2(-m_onWallSide * wallClimbForce.x, wallClimbForce.y), ForceMode2D.Impulse);
