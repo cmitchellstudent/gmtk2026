@@ -42,7 +42,7 @@ namespace SupanthaPaul
 		private Rigidbody2D m_rb;
 		private ParticleSystem m_dustParticle;
 		private bool m_facingRight = true;
-		private readonly float m_groundedRememberTime = 0.25f;
+		private readonly float m_groundedRememberTime = 0.05f;
 		private float m_groundedRemember = 0f;
 		private int m_extraJumps;
 		private float m_extraJumpForce;
@@ -219,10 +219,11 @@ namespace SupanthaPaul
 				m_hasDashedInAir = false;
 			*/
 			// Jumping
-			//Debug.Log(isGrounded);
-			if(InputSystem.Jump() && m_extraJumps > 0 && !isGrounded && !m_wallGrabbing && playerStats.hasDoubleJump)	// extra jumping
+			Debug.Log(playerStats.hasWallJump);
+			if(InputSystem.Jump() && m_extraJumps > 0 && !isGrounded && !m_wallGrabbing && playerStats.hasDoubleJump
+				&& (!m_onWall || playerStats.hasWallJump))
 			{
-				Debug.Log(playerStats.hasDoubleJump);
+				//Debug.Log(playerStats.hasDoubleJump);
 				m_rb.linearVelocity = new Vector2(m_rb.linearVelocity.x, m_extraJumpForce); ;
 				m_extraJumps--;
 				// jumpEffect
@@ -243,7 +244,7 @@ namespace SupanthaPaul
 				m_extraJumps = playerStats.GetJumpAmount();
 				if (m_playerSide == m_onWallSide)
 					Flip();
-				m_rb.AddForce(new Vector2(-m_onWallSide * wallJumpForce.x, wallJumpForce.y), ForceMode2D.Impulse);
+				if (playerStats.hasWallJump) m_rb.AddForce(new Vector2(-m_onWallSide * wallJumpForce.x, wallJumpForce.y), ForceMode2D.Impulse);
 			}
 			else if(InputSystem.Jump() && m_wallGrabbing && moveInput != 0 && (moveInput == m_onWallSide) && playerStats.hasWallJump)      // wall climbing jump
 			{
@@ -253,7 +254,7 @@ namespace SupanthaPaul
 				m_extraJumps = playerStats.GetJumpAmount();
 				if (m_playerSide == m_onWallSide)
 					Flip();
-				m_rb.AddForce(new Vector2(-m_onWallSide * wallClimbForce.x, wallClimbForce.y), ForceMode2D.Impulse);
+				if (playerStats.hasWallJump) m_rb.AddForce(new Vector2(-m_onWallSide * wallClimbForce.x, wallClimbForce.y), ForceMode2D.Impulse);
 			}
 
 		}

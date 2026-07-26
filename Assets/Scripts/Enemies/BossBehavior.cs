@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossBehavior : MonoBehaviour
@@ -60,6 +61,7 @@ public class BossBehavior : MonoBehaviour
         }
         
         BossHealthBar.value = currentHealth;
+        if (currentHealth <= 0) BossDie();
     }
 
     public void TakeDamage(int damage)
@@ -91,5 +93,10 @@ public class BossBehavior : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         coroutineRunning = false;
         rb.linearVelocity = (GetVectorAwayFromPlayer()) * (speed * 5);
+    }
+
+    public void BossDie()
+    {
+        SceneManager.LoadScene("Win");
     }
 }
