@@ -31,11 +31,13 @@ public class playerAttackSpawner : MonoBehaviour
         attackHitbox.enabled = false;
     }
 
+    //killing stuff
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(other.tag);
         if (other.gameObject.CompareTag("Koopa") || other.gameObject.CompareTag("FlyingEnemy"))
         {
+            playerStats.GainBlood(1);
             Destroy(other.gameObject);
         }
 
