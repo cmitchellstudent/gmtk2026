@@ -8,10 +8,9 @@ public class PlayerStats : ScriptableObject{
     [SerializeField] private float playerSpeed = 1f;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private int jumpAmount = 1; // double jump starts at 2
-    [SerializeField] private float dashCooldown =  0.2f;
-    [SerializeField] private float damageAmount = 2f;
     [SerializeField] private int vampBlood = 0; // currency for upgrades 
     [SerializeField] private float timeToLive = 3f;
+    [SerializeField] private float attackPower = 1f;
     
     // this mainly works because they have the same index when one gets removed or added
     [SerializeField] private List<int> skillList = new List<int>(); // contains the id of the skill the player has 
@@ -21,9 +20,8 @@ public class PlayerStats : ScriptableObject{
     public float GetPlayerSpeed() => playerSpeed;
     public float GetMaxHealth() => maxHealth;
     public int GetJumpAmount() => jumpAmount;
-    public float GetDashCooldown() => dashCooldown;
     public int GetVampBlood() => vampBlood;
-
+    public float GetAttackPower() => attackPower;
     public float GetTimeToLive() => timeToLive; 
 
     // dynamic stat setter
@@ -38,20 +36,17 @@ public class PlayerStats : ScriptableObject{
             case StatType.speed:
                 playerSpeed = val;
                 break;
-            case StatType.dashCooldown:
-                dashCooldown = val;
-                break;
             case StatType.jumpAmount:
                 jumpAmount = (int)val;
-                break;
-            case StatType.damageAmount:
-                damageAmount = val;
                 break;
             case StatType.vampBlood:
                 vampBlood = (int)val;
                 break;
             case StatType.timeToLive:
                 timeToLive = val;
+                break;
+            case StatType.attackPower:
+                attackPower = val;
                 break;
         }
 

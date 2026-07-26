@@ -17,9 +17,9 @@ public class SkillNode : MonoBehaviour
     [SerializeField] private TMP_Text skillBloodCost;
     [SerializeField] private TMP_Text skillMaxUpgrade;
 
-    private static readonly Color disabledSkillColor = Color.grey;
-    private static readonly Color maxedOutColor = Color.red;
-    private static readonly Color normalSkillColor = Color.azure;
+    private static readonly Color disabledSkillColor = Color.gray9;// color when skill is not equipped
+    private static readonly Color maxedOutColor = new Color(255f, 215f, 0f, 1f); // color when skill is maxed
+    private static readonly Color normalSkillColor = Color.blue; // color when skill is equipped
 
     private void Awake()
     {
