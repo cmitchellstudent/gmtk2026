@@ -2,11 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
     public Slider healthSlider;
+    public TextMeshProUGUI healthText;
     public Image invincibleIcon;
     [HideInInspector]public int currentHealth;
     
@@ -33,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
             invincibleIcon.enabled = false;
         }
         healthSlider.value = currentHealth;
+        healthText.text = currentHealth.ToString();
         if (currentHealth <= 0) Die();
     }
 
