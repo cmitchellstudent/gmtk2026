@@ -10,17 +10,23 @@ public class PauseGame : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] private Settings _settings;
     [SerializeField] private Slider audioSlider;
+
+    [SerializeField] private Button shopButton;
+    [SerializeField] private PlayerHealth playerHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
     {
+        Pause();
         audioSlider.value = _settings.GetVolume();
+        Unpause();
     }
 
     void Start()
     {
         //audioSlider.value = _settings.GetVolume();
-        audioSlider.onValueChanged.AddListener(_settings.SetVolume);
+        shopButton.onClick.AddListener(playerHealth.Die);
+        //audioSlider.onValueChanged.AddListener(_settings.SetVolume);
         pauseCanvas.enabled = false;
     }
 
@@ -28,6 +34,7 @@ public class PauseGame : MonoBehaviour
     void Update()
     {
         audioMixer.SetFloat("Volume", audioSlider.value);
+        _settings.SetVolume(audioSlider.value);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //Debug.Log(isPaused);
